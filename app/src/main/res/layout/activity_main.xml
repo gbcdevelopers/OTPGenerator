@@ -1,33 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-				xmlns:android="http://schemas.android.com/apk/res/android"
-				xmlns:app="http://schemas.android.com/apk/res-auto"
-				xmlns:tools="http://schemas.android.com/tools"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:fitsSystemWindows="true"
-				tools:context="gbc.sa.otpgenerator.MainActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login"
+            android:fitsSystemWindows="true">
 
-				<android.support.design.widget.AppBarLayout
+				<LinearLayout
+								android:orientation="vertical"
 								android:layout_width="match_parent"
-								android:layout_height="wrap_content"
-								android:theme="@style/AppTheme.AppBarOverlay">
-
-								<android.support.v7.widget.Toolbar
-												android:id="@+id/toolbar"
+								android:layout_height="match_parent">
+								<LinearLayout
+												android:orientation="vertical"
 												android:layout_width="match_parent"
-												android:layout_height="?attr/actionBarSize"
-												android:background="?attr/colorPrimary"
-												app:popupTheme="@style/AppTheme.PopupOverlay"/>
-				</android.support.design.widget.AppBarLayout>
+												android:layout_height="wrap_content"
+												android:paddingTop="86dp"
+												android:paddingLeft="@dimen/h"
+												android:paddingRight="@dimen/h">
 
-				<include layout="@layout/content_main"/>
+												<ImageView android:src="@drawable/login"
+												           android:visibility="invisible"
+												           android:layout_width="wrap_content"
+												           android:layout_height="72dp"
+												           android:layout_marginBottom="@dimen/h"
+												           android:layout_gravity="center_horizontal" />
 
-				<android.support.design.widget.FloatingActionButton
-								android:id="@+id/fab"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:layout_gravity="bottom|end"
-								android:layout_margin="@dimen/fab_margin"
-								android:src="@android:drawable/ic_dialog_email"/>
-</android.support.design.widget.CoordinatorLayout>
+												<TextView
+																android:text="@string/accesscode"
+																android:textSize="@dimen/label_medium"
+																android:textAllCaps="true"
+																android:textColor="@color/colorPrimary"
+																android:layout_width="match_parent"
+																android:layout_height="wrap_content"/>
+
+												<!--  Email Label -->
+												<android.support.design.widget.TextInputLayout
+																android:layout_width="match_parent"
+																android:layout_height="wrap_content"
+																android:layout_marginTop="@dimen/space"
+																android:layout_marginBottom="0dp">
+																<!--<EditText android:id="@+id/input_email"
+																										android:layout_width="match_parent"
+																										android:layout_height="wrap_content"
+																										android:inputType="text"
+																										android:hint="Username" />-->
+																<EditText
+																				android:id="@+id/accesscode"
+																				android:layout_width="match_parent"
+																				android:layout_height="40dp"
+																				android:singleLine="true"
+																				android:inputType="number"
+																				android:background="@drawable/edittext_center_bg"
+																				android:textColorHint="#cccccc"
+																				/>
+												</android.support.design.widget.TextInputLayout>
+
+												<!--  Password Label -->
+
+												<!--<TextView
+																android:text="@string/activitycode"
+																android:textSize="@dimen/label_medium"
+																android:textAllCaps="true"
+																android:textColor="@color/colorPrimary"
+																android:layout_marginTop="@dimen/default_padding"
+																android:layout_width="match_parent"
+																android:layout_height="wrap_content"/>
+
+												<android.support.design.widget.TextInputLayout
+																android:layout_width="match_parent"
+																android:layout_height="wrap_content"
+																android:layout_marginBottom="@dimen/space">
+																&lt;!&ndash;<EditText android:id="@+id/input_password"
+																										android:layout_width="match_parent"
+																										android:layout_height="wrap_content"
+																										android:inputType="textPassword"
+																										android:hint="Password"/>&ndash;&gt;
+
+
+
+																<EditText
+																				android:id="@+id/activitycode"
+																				android:layout_width="match_parent"
+																				android:layout_height="40dp"
+																				android:background="@drawable/edittext_center_bg"
+																				android:layout_marginTop="-12dp"
+																				android:inputType="number"
+																				android:singleLine="true"
+																				android:textColorHint="#cccccc"
+																				android:password="true"/>
+												</android.support.design.widget.TextInputLayout>-->
+
+												<Button
+																android:id="@+id/btn_generate_otp"
+																android:layout_width="fill_parent"
+																android:layout_height="wrap_content"
+																android:layout_marginTop="@dimen/h"
+																android:layout_marginBottom="@dimen/h"
+																android:padding="@dimen/h3"
+																android:background="@color/colorPrimary"
+																android:textColor="@color/white"
+																android:text="@string/generate"/>
+
+
+								</LinearLayout>
+								<LinearLayout
+												android:weightSum="6"
+												android:orientation="horizontal"
+												android:paddingLeft="@dimen/size_five"
+												android:paddingRight="@dimen/size_five"
+												android:layout_width="match_parent"
+												android:layout_height="100dp">
+
+											 <TextView
+															 android:layout_weight="1"
+															 android:id="@+id/digit1"
+															 android:text="0"
+															 android:layout_gravity="center_vertical|center_horizontal"
+															 android:gravity="center"
+															 android:textSize="@dimen/label_digits"
+															 android:textColor="@color/colorPrimary"
+															 android:layout_width="0dp"
+															 android:layout_height="match_parent"/>
+
+												<TextView
+																android:layout_weight="1"
+																android:id="@+id/digit2"
+																android:text="0"
+																android:layout_gravity="center_vertical|center_horizontal"
+																android:gravity="center"
+																android:textSize="@dimen/label_digits"
+																android:textColor="@color/buttoncolor"
+																android:layout_width="0dp"
+																android:layout_height="match_parent"/>
+
+
+												<TextView
+																android:layout_weight="1"
+																android:id="@+id/digit3"
+																android:text="0"
+																android:layout_gravity="center_vertical|center_horizontal"
+																android:gravity="center"
+																android:textSize="@dimen/label_digits"
+																android:textColor="@color/colorPrimary"
+																android:layout_width="0dp"
+																android:layout_height="match_parent"/>
+
+												<TextView
+																android:layout_weight="1"
+																android:id="@+id/digit4"
+																android:text="0"
+																android:layout_gravity="center_vertical|center_horizontal"
+																android:gravity="center"
+																android:textSize="@dimen/label_digits"
+																android:textColor="@color/buttoncolor"
+																android:layout_width="0dp"
+																android:layout_height="match_parent"/>
+
+												<TextView
+																android:layout_weight="1"
+																android:id="@+id/digit5"
+																android:text="0"
+																android:layout_gravity="center_vertical|center_horizontal"
+																android:gravity="center"
+																android:textSize="@dimen/label_digits"
+																android:textColor="@color/colorPrimary"
+																android:layout_width="0dp"
+																android:layout_height="match_parent"/>
+
+												<TextView
+																android:layout_weight="1"
+																android:id="@+id/digit6"
+																android:text="0"
+																android:layout_gravity="center_vertical|center_horizontal"
+																android:gravity="center"
+																android:textSize="@dimen/label_digits"
+																android:textColor="@color/buttoncolor"
+																android:layout_width="0dp"
+																android:layout_height="match_parent"/>
+
+								</LinearLayout>
+
+				</LinearLayout>
+
+
+</ScrollView>

@@ -1,4 +1,8 @@
 <resources>
 				<string name="app_name">OTPGenerator</string>
 				<string name="action_settings">Settings</string>
+				<string name="generate">Generate OTP</string>
+				<string name="accesscode">Enter Access Code</string>
+				<string name="accesscode_valid">Please enter accesscode</string>
+				<string name="activitycode">Enter Activity Code</string>
 </resources>
